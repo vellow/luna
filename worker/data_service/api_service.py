@@ -8,7 +8,7 @@ Data Service
 
 import requests
 import json
-from .._common import utils
+# from .._common import utils
 
 class Data:
     def __init__(self):
@@ -17,7 +17,7 @@ class Data:
     def get_data(self, url, cookies):
         r = requests.get(url, cookies=cookies)
         r.encoding = "UTF-8"
-        print r.headers
-        # data = json.loads(r.text)
-        return r.text
+        # print r.headers
+        data = json.loads(r.text)
+        return data
 

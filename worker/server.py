@@ -5,7 +5,7 @@ import zerorpc
 import logging
 from auth_service.cas.auth import Login
 from data_service.api_service import Data
-from _common.utils import *
+# from _common.utils import *
 
 logging.basicConfig()
 
