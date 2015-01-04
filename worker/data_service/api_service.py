@@ -17,7 +17,6 @@ class Data:
     def get_data(self, url, cookies):
         r = requests.get(url, cookies=cookies)
         r.encoding = "UTF-8"
-        # print r.headers
-        data = json.loads(r.text)
-        return data
+        # data = json.loads(r.text)
+        return r.text
 

@@ -4,6 +4,7 @@
  **/
 
 var service = require('./invoker');
+var Request = require('../lib/request');
 
 exports.auth_itebeta = function (username, callback){
   service.auth_itebeta(username, function(res){
@@ -17,8 +18,17 @@ exports.auth_uuap = function (username, password, callback){
   });
 };
 
-exports.get_data = function (serviceUrl, auth, callback){
-  service.get_data(serviceUrl, auth, function(res){
+exports.get_data = function (serviceUrl, cookies, callback){
+  service.get_data(serviceUrl, cookies, function(res){
     callback(res)
   });
+
+  // new Request({
+  //   reqUrl: serviceUrl,
+  //   cookies: cookies
+  // }).request().on('success', function(res){
+  //   console.log(res);
+  //   callback(res)
+  // })
+
 };

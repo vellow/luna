@@ -57,6 +57,12 @@ class Login:
         self.cookies.update(r.cookies)
         return self.cookies
 
+    def get_app_tikect(self):
+        params = {"excution": "e1s2", "_eventId": "submit", "setCookiePathFailure": "[http://setCookie1.com, http://setcookie2.com]"}
+        urlParams = urllib.urlencode(params)
+        req = urllib2.Request(self.url, urlParams)
+        htmlPost = urllib2.urlopen(req)
+
     def login_to_cas2(self):
         params = {"excution": "e1s2", "_eventId": "submit", "setCookiePathFailure": "[http://setCookie1.com, http://setcookie2.com]"}
         urlParams = urllib.urlencode(params)

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "log4js": "^0.6.21",
     "msgpack": "^0.2.4",
     "zerorpc": "^0.9.3"
   },

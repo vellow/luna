@@ -7,7 +7,7 @@ var http = require('http');
 var utils = require('../lib/utils');
 var url = require('url');
 var service = require('../service/service');
-var resUtils = require('../service/response');
+var resUtils = require('../lib/response');
 
 var cookieCache = {};
 
@@ -16,6 +16,7 @@ http.createServer(function (req, response) {
   var reqCookie = utils.parse_cookies(req);
   if( reqQuery['user'] || cookieCache.hasOwnProperty(reqCookie['MIDUUID']) === false ){
     service.auth_itebeta(reqQuery['user'], function(auth){
+      
       cookieCache[miduuid] = auth;
       service.get_data(reqQuery['service'], auth, function(data){
         resUtils.do_response(response, miduuid, data)
@@ -29,7 +30,7 @@ http.createServer(function (req, response) {
       })
   }
 
-}).listen(1337, '172.22.230.75');
+}).listen(1337, 'localhost');
 
 
 console.log('Server running at http://127.0.0.1:1337/');
