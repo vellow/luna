@@ -19,4 +19,3 @@ class Data:
         r.encoding = "UTF-8"
         # data = json.loads(r.text)
         return r.text
-
