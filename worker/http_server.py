@@ -26,9 +26,9 @@ class MainHandler(tornado.web.RequestHandler):
         miduuid = self.get_cookie('MIDUUID')
         auth = authCache.get(miduuid)
 
-
         if miduuid==None or auth==None or user:
-            auth = self.login.login_cas_itebeta(user)
+            auth = self.login.login_cas_itebeta(user, url)
+            
             miduuid = str(uuid.uuid1())
             authCache[miduuid] = auth
             data = self.data.get_data(url, auth)
