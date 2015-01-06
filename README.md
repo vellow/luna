@@ -6,6 +6,7 @@ Luna Midleware
 
 # 参考资源
 - [Mock.js](http://mockjs.com/)   
+- [RAP](http://thx.github.io/RAP/)  
 - [Fake2db](https://github.com/emirozer/fake2db)    
 - [Artisan-validator](https://github.com/MCProHosting/artisan-validator)  
 - [SAPI](http://sapi.baidu.com/)  
@@ -14,3 +15,4 @@ Luna Midleware
 - [Json-server](https://github.com/typicode/json-server)  
 - [Api-easy](https://github.com/flatiron/api-easy)  
 - [Deployd](https://github.com/deployd/deployd)  
+- [Solar](http://solar.baidu.com/apidoc)
