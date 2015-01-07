@@ -1,8 +1,10 @@
 Luna Midleware
 
+# Dependency
 
-
-
+  MongoDB
+  Python requests
+  Python tornado
 
 # 参考资源
 - [Mock.js](http://mockjs.com/)   
