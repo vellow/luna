@@ -7,6 +7,11 @@ Luna Midleware
   Python tornado
 
 # 参考资源
+- [ForgeryPy](https://github.com/tomekwojcik/ForgeryPy)    
+- [Mockaroo](http://mockaroo.com/)  
+- [Generatedata](http://www.generatedata.com/)  
+- [Faker](https://github.com/joke2k/faker)  
+- [Json-generator](http://www.json-generator.com/)  
 - [Mock.js](http://mockjs.com/)   
 - [RAP](http://thx.github.io/RAP/)  
 - [Fake2db](https://github.com/emirozer/fake2db)    
