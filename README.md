@@ -8,12 +8,12 @@ Luna Midleware
 
 # Tips
 
-If you see error like this while pushing branch:
+If you see error like this while pushing branch:  
 ```
 fatal: The remote end hung up unexpectedly
 Everything up-to-date
 ```
-Type this command before push again:
+Type this command before push again:  
 `git config http.postBuffer 104857600`  
 
 [Ref link](http://www.jamescoyle.net/how-to/894-gitlab-error-fatal-the-remote-end-hung-up-unexpectedly)  
