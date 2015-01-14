@@ -15,5 +15,22 @@ class Mock:
     def __init__(self):
         pass
 
-    def mock_data(self):
-        return json.dumps({"name": fake.name(), "email":fake.company_email(), "company": fake.company() })
+    # @ rules { string }
+    def mock_data(self, rules):
+        rules = json.loads(rules)
+        data = dict()
+        for item in rules:
+            for j in item:  
+                # {{fake.name()}} --> fake.name()
+                func = item[j][2:-2]
+                data[j] = eval('fake.' + func)
+
+        return json.dumps(data)
+
+
+class Interpreter:
+    def __init__(self):
+        pass
+
+    def json(self):
+        pass

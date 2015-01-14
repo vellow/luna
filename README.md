@@ -2,7 +2,7 @@ Luna Midleware
 
 # Dependency
 
-  MongoDB
+  pymongo
   Python requests
   Python tornado
 
