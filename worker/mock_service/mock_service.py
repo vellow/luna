@@ -28,9 +28,3 @@ class Mock:
         return json.dumps(data)
 
 
-class Interpreter:
-    def __init__(self):
-        pass
-
-    def json(self):
-        pass
