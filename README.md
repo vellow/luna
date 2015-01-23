@@ -1,10 +1,17 @@
-Luna Midleware
+Luna Middleware
 
-# Dependency
+# Dependencies
 
-  pymongo
-  Python requests
-  Python tornado
+- Pymongo
+- Python requests
+- Python tornado
+
+# Get Started
+
+Install dependencies, the easiest way is to use `pip`, like `pip install requests`. Alternative installation approaches are available on official documents.
+
+Run the app: ``
+
 
 # Tips
 
@@ -19,7 +26,7 @@ Type this command before push again:
 [Ref link](http://www.jamescoyle.net/how-to/894-gitlab-error-fatal-the-remote-end-hung-up-unexpectedly)  
 
 
-# 参考资源
+# Resources
 - [ForgeryPy](https://github.com/tomekwojcik/ForgeryPy)    
 - [Mockaroo](http://mockaroo.com/)  
 - [Generatedata](http://www.generatedata.com/)  
