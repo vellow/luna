@@ -1,42 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Interface Luna</title>
-</head>
-<body>
-  <h3>Saved</h3>
-    <ul>
-      {% for item in lis %}
-      <li><a href="javascript:;" onclick="fetch_rule('{{item["url"]}}')">{{item['url']}}</a><a href="javascript:;" style="margin-left:20px;color:red" onclick="delete_rule('{{item["url"]}}')">☓</a></li>
-      {% end %}
-    </ul>
+/**
+ * Created by YellowGlue on 6/16/15.
+ */
 
-  <h3>Rules</h3>
-  <form id="ruleForm"  action="/" method="POST">
-    loginUser: <br><input type="text" name="user" id="userIpt"><br>
-    url: <br><input type="text" name="url" id="urlIpt" style="width:400px"><br>
-    rule: <br>
-    <textarea name="rule" id="ruleIpt" style="width:500px;height:200px">{{ rule }}</textarea><br>
-    <input type="button" value="mock data" onclick="fetch_mocked_data()">
-    <input type="button" value="real data" onclick="fetch_real_data()">
-    <input type="button" value="save" onclick="save_rule()">
-  </form>
-
-  <table width="100%" border="0">
-    <tr>
-      <td width="50%"><h3>Mock Data</h3></td>
-      <td><h3>Real Data</h3></td>
-    </tr>
-    <tr>
-      <td><div id="mockData"> {{mock_data}} </div></td>
-      <td><div id="realData">  </div></td>
-    </tr>
-  </table>
-</body>
-
-  <script>
-    var userIpt = document.getElementById('userIpt');
+ var userIpt = document.getElementById('userIpt');
     var urlIpt = document.getElementById('urlIpt');
     var ruleIpt = document.getElementById('ruleIpt');
     var ruleForm = document.getElementById('ruleForm');
@@ -47,13 +13,13 @@
       var url = 'http://' + location.host + '/real?isMock=false&user=' + userIpt.value + '&service=' + urlIpt.value;
       xhr.onreadystatechange = function(){
          if(xhr.readystate === 4 || xhr.status === 200){
-            res = xhr.response     
+            res = xhr.response
             realData.innerHTML = JSON.stringify(res)
             mockData.innerHTML = ""
          }
       }
       xhr.open("GET",url,true);
-      xhr.send(null);  
+      xhr.send(null);
     }
 
     function fetch_mocked_data(){
@@ -62,44 +28,44 @@
       var url = 'http://' + location.host + '/mock';
       xhr.onreadystatechange = function(){
          if(xhr.readystate === 4 || xhr.status === 200){
-            res = xhr.response     
+            res = xhr.response
             mockData.innerHTML = JSON.stringify(res)
             realData.innerHTML = ""
          }
       }
       xhr.open("POST",url,true);
-      xhr.send(new FormData(ruleForm));  
+      xhr.send(new FormData(ruleForm));
     }
     function fetch_rule(url){
       var xhr = new XMLHttpRequest();
       xhr.responseType='json';
-      url = 'http://' + location.host + '/url?url=' + url;
+      url = 'http://' + location.host + '/search?url=' + url;
       xhr.onreadystatechange = function(){
          if((xhr.readystate === 4 || xhr.status === 200) && xhr.response){
-            res = xhr.response       
-            urlIpt.value = res[0]['url'];
-            ruleIpt.value = res[0]['rule'];
+            res = xhr.response;
+            urlIpt.value = res.data['url'];
+            ruleIpt.value = res.data['rule'];
          }
       }
       xhr.open("GET",url,true);
-      xhr.send(null);                    
+      xhr.send(null);
     }
     function save_rule(){
       var xhr = new XMLHttpRequest();
       xhr.responseType='json';
-      var url = 'http://' + location.host + '/add';
+      var url = 'http://' + location.host + '/line/save';
       xhr.onreadystatechange = function(){
          if(xhr.readystate === 4 || xhr.status === 200){
             window.location.reload()
          }
       }
       xhr.open("POST",url,true);
-      xhr.send(new FormData(ruleForm)); 
+      xhr.send(new FormData(ruleForm));
     }
     function delete_rule(url){
       var xhr = new XMLHttpRequest();
       xhr.responseType='json';
-      var url = 'http://' + location.host + '/delete?url=' + url;
+      var url = 'http://' + location.host + '/line/remove?url=' + url;
       var thisLi = event.target.parentNode
       xhr.onreadystatechange = function(){
          if(xhr.readystate === 4 || xhr.status === 200){
@@ -107,8 +73,5 @@
          }
       }
       xhr.open("GET",url,true);
-      xhr.send(null); 
+      xhr.send(null);
     }
-  </script>
-
-</html>

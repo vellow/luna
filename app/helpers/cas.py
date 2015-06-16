@@ -73,4 +73,4 @@ class Login:
 
 if __name__=='__main__':
     ins = Login()
-    print ins.login_to_cas()
+    print(ins.login_to_cas())

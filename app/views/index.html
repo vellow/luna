@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interface Luna</title>
+</head>
+<body>
+  <h3>Saved</h3>
+    <ul>
+      {% for item in savedLines %}
+      <li><a href="javascript:;" onclick="fetch_rule('{{item["url"]}}')">{{item['url']}}</a><a href="javascript:;" style="margin-left:20px;color:red" onclick="delete_rule('{{item["url"]}}')">☓</a></li>
+      {% end %}
+    </ul>
+  <h3>Rules</h3>
+  <form id="ruleForm"  action="/" method="POST">
+    loginUser: <br><input type="text" name="user" id="userIpt"><br>
+    url: <br><input type="text" name="url" id="urlIpt" value="{% if 'url' in globals() %}{{url}}{% end %}" style="width:800px"><br>
+    rule: <br>
+    <input type="text" name="rule" id="ruleIpt" value="{% if 'rule' in globals() %}{{rule}}{% end %}" style="width: 400px" /><br>
+
+    <input type="button" value="mock data" onclick="fetch_mocked_data()">
+    <input type="button" value="real data" onclick="fetch_real_data()">
+    <input type="button" value="save" onclick="save_rule()">
+  </form>
+
+    <h3>Mock Data</h3>
+    <div id="mockData"></div>
+    <h3>Real Data</h3>
+    <div id="realData"></div>
+</body>
+
+  <script src="{{ static_url('js/app.js') }}"></script>
+
+</html>
